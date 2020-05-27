@@ -14,7 +14,6 @@ int main(void)
     for (int i=1; i<n; i++){
         maxp = std::max(maxp, R[i] - min_R);
         min_R = std::min(min_R, R[i]);
-    std::cout << maxp << std::endl;
     }
 
     std::cout << maxp << std::endl;
