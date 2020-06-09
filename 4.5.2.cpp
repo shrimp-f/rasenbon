@@ -14,7 +14,6 @@ int main(){
     string s;
 
     while(cin>>s){
-        cout << s << endl;
         if(s[0]=='+'){
             a = S.top();
             S.pop();
@@ -22,24 +21,22 @@ int main(){
             S.pop();
             S.push(a+b);
         }else if(s[0]=='-'){
-            a = S.top();
-            S.pop();
             b = S.top();
             S.pop();
+            a = S.top();
+            S.pop();
             S.push(a-b);
-        }else if(s[0]=-'*'){
+        }else if(s[0]=='*'){
             a = S.top();
             S.pop();
             b = S.top();
             S.pop();
             S.push(a*b);
         }else{
-            cout << "here" << endl;
             S.push(atoi(s.c_str()));
         }
-
+    }
         cout << S.top() << endl;
 
         return 0;
-    }
 }
