@@ -5,31 +5,36 @@ using namespace std;
 
 
 
-void print(vector<double> V){
-    for(int i=0; i<V.size(); i++){
-        cout << V[i] << " ";
-    }
-    cout << endl;
-}
-
-
 int main(){
-    vector<double> V;
+    int n, q, t;
+    string name;
 
-    V.push_back(0.1);
-    V.push_back(0.2);
-    V.push_back(0.3);
-    V[2] = 0.4;
-    print(V);
+    queue<pair<string, int>> Q;
 
-    V.insert(V.begin() + 2, 0.8);
-    print(V);
+    cin >> n >> q;
 
-    V.erase(V.begin() + 1);
-    print(V);
+    for(int i=0; i<n; i++){
+        cin >> name >> t;
+        Q.push(make_pair(name, t));
+    }
 
-    V.push_back(0.9);
-    print(V);
+    pair<string, int> u;
+    int elaps = 0, a;
 
-    return 0;
-}
+    while(!Q.empty()){
+        u = Q.front();
+        Q.pop();
+        a = min(u.second, q);
+        u.second -= a;
+        elaps += a;
+        if(u.second>0){
+            Q.push(u);
+        }else{
+            cout << u.first << " " << elaps << endl;
+        }
+
+    }
+
+
+        return 0;
+} 
