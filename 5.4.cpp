@@ -66,20 +66,23 @@ int insert(char str[]){
 
 
 int main(){
-    int i, q, key, sum = 0;
-    int A[1000000], n;
-
+    int i, n, h;
+    char str[L], com[9];
+    for(i=0; i<M; i++)  H[i][0] = '\0';
     scanf("%d", &n);
     for(i=0; i<n; i++){
-        scanf("%d", &A[i]);
-    }
+        scanf("%s %s", com, str);
 
-    scanf("%d", &q);
-    for(i=0; i<q; i++){
-        scanf("%d", &key);
-        if(binarySearch(A, n, key)) sum++;
+        if(com[0]=='i'){
+            insert(str);
+        }else{
+            if(find(str)){
+                printf("yes\n");
+            }else{
+                printf("no\n");
+            }
+        }
     }
-    printf("%d\n", sum);
 
     return 0;
 }
